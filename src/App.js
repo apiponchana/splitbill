@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+
+import { Toaster } from "react-hot-toast";
+import { FriendProvider } from "./Context/FriendContext";
+
+import Homepage from "./UI/Homepage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FriendProvider>
+      <Homepage />
+
+      <Toaster
+        position="top-center"
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 5000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "24px",
+            padding: "16px 24px",
+          },
+        }}
+      />
+    </FriendProvider>
   );
 }
 
